@@ -14,6 +14,7 @@ Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software 
 **Web / Backend** — Next.js 15 (App Router, server actions) · FastAPI · SQLAlchemy 2.0 · Prisma · PostgreSQL  
 **Auth / Infra** — NextAuth v5 + Microsoft Entra ID · Docker (multi-stage) · Coolify · Azure VM (Ubuntu 24.04) · Supabase · GitHub Actions  
 **Desktop** — WPF + MVVM · ClosedXML · iText7 · DocumentFormat.OpenXml · PyInstaller · Inno Setup  
+**APIs** — LinkedIn API (OAuth 2.0) · Microsoft Teams Webhooks · Mercado Público REST · Pillow  
 **AEC / BIM** — Revit API (C#, 2023–2025) · Dynamo · Navisworks · multi-discipline coordination · PlanBIM  
 **AI / LLM** — Google Gemini 2.5 Flash (batch prompting, neighbor-context few-shot, rate-limit handling) · Azure AI Foundry GPT-4.1
 
@@ -83,6 +84,14 @@ All tools below are in active use inside IDOM. Repos are private (IDOM IP), but 
 
 **Stack**: C# · .NET 8 · WPF + MVVM · DocumentFormat.OpenXml · self-contained single-file exe (~160 MB)  
 **Highlights**: hierarchical heading view (H1–H6) with level, numbering and visual indentation; multi-selection with Ctrl+Click / Shift+Click for batch operations; granular hide (yellow) / delete (red) marking per section or subtree; collapsible tree navigation; **Excel-batch filtering** — load `.xlsx` to apply hide/delete across hundreds of headings in one pass; vanish-text reveal (removes hidden formatting from Word documents); smart `.docx` export excluding marked sections.
+
+---
+
+### LinkedIn Auto-Publisher *(personal · public)*
+> **Automated LinkedIn post scheduler** — reads a `schedule.json` content calendar, generates branded 1080×1080 px images programmatically and publishes posts via the LinkedIn API on a daily cron.
+
+**Stack**: Python 3 · Pillow · LinkedIn API (OAuth 2.0) · GitHub Actions · python-dotenv  
+**Highlights**: two image generators (profile card + certificate/milestone style) using Pillow with Poppins/Segoe UI fonts; OAuth 2.0 flow with automatic browser-launch + callback capture + token persistence; GitHub Actions cron at 9 AM Santiago daily; manual `workflow_dispatch` with optional `--date` and `--force` flags; `schedule.json` auto-updated after each publish to prevent duplicate posts.
 
 ---
 
