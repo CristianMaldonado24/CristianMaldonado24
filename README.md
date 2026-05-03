@@ -13,7 +13,7 @@ Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software 
 **Languages** — TypeScript · Python 3.12 · C# (.NET 8 + .NET Framework 4.8) · SQL  
 **Web / Backend** — Next.js 15 (App Router, server actions) · FastAPI · SQLAlchemy 2.0 · Prisma · PostgreSQL  
 **Auth / Infra** — NextAuth v5 + Microsoft Entra ID · Docker (multi-stage) · Coolify · Azure VM (Ubuntu 24.04) · Supabase · GitHub Actions  
-**Desktop** — WPF + MVVM · ClosedXML · iText7 · PyInstaller · Inno Setup  
+**Desktop** — WPF + MVVM · ClosedXML · iText7 · DocumentFormat.OpenXml · PyInstaller · Inno Setup  
 **AEC / BIM** — Revit API (C#, 2023–2025) · Dynamo · Navisworks · multi-discipline coordination · PlanBIM  
 **AI / LLM** — Google Gemini 2.5 Flash (batch prompting, neighbor-context few-shot, rate-limit handling) · Azure AI Foundry GPT-4.1
 
@@ -75,6 +75,14 @@ All tools below are in active use inside IDOM. Repos are private (IDOM IP), but 
 
 **Stack**: .NET 8 · WPF · ClosedXML · iText7 · Supabase telemetry · self-contained single-file exe  
 **Highlights**: module sidebar with per-module `UserControl` and shared IDOM theming (`IdomColors.xaml` + `IdomStyles.xaml`); Excel Comparator handles 2–5 files and up to 10 column pairs with color-coded output; PDF Cleaner offers 6 independent strip options (annotations, form fields, links, bookmarks, metadata, layer flatten); anonymous telemetry to Supabase (timestamp, module, op, user, host, OS) with **local fallback log** if connectivity fails — non-blocking.
+
+---
+
+### IDO_GEN Word Manager *(public — [github.com/CristianMaldonado24/IDO_GEN_WordManager](https://github.com/CristianMaldonado24/IDO_GEN_WordManager))*
+> **WPF desktop tool** for managing Word document structures — loads `.docx` files, visualizes heading hierarchies, marks sections for hiding or deletion, and exports filtered documents with Excel-based batch filtering support.
+
+**Stack**: C# · .NET 8 · WPF + MVVM · DocumentFormat.OpenXml · self-contained single-file exe (~160 MB)  
+**Highlights**: hierarchical heading view (H1–H6) with level, numbering and visual indentation; multi-selection with Ctrl+Click / Shift+Click for batch operations; granular hide (yellow) / delete (red) marking per section or subtree; collapsible tree navigation; **Excel-batch filtering** — load `.xlsx` to apply hide/delete across hundreds of headings in one pass; vanish-text reveal (removes hidden formatting from Word documents); smart `.docx` export excluding marked sections.
 
 ---
 
