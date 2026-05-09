@@ -4,7 +4,7 @@
 
 Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software engineer. As **Innovation Lead at IDOM Chile**, I founded and run a solo innovation function (Apr 2025) that ships production tooling used across the office and IDOM's international **iHub for BIM & Digital Twins**. Six years of AEC field experience on hospital, residential and education projects from 6,000 m² to 210,000 m² informs what I build and why.
 
-📍 Santiago, Chile · ✉️ cristian.maldonado@idom.com · 🔗 linkedin.com/in/cristian-maldonado
+📍 Santiago, Chile · ✉️ maldonado.c24@icloud.com · 🔗 linkedin.com/in/cristian-maldonado
 
 ---
 
