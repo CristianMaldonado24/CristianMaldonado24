@@ -101,6 +101,14 @@ Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software 
 
 ---
 
+### DWG Editor — Bulk Text Editor *(in development, v0.2)*
+> **Python desktop tool** for mass text operations across multiple DWG files via AutoCAD COM Automation. Planned integration with DWG Manager into a unified DWG management suite.
+
+**Stack**: Python 3 · tkinter · pywin32 · AutoCAD COM Automation  
+**Highlights**: bulk **verify** (title block text vs. filename), **replace** (revision numbers, fields) and **delete** text at configurable XY coordinates — up to 10 coordinate pairs per run; `.bak` cleanup; progress bar with real-time stats and detailed per-file operation reports.
+
+---
+
 ### BIM QA/QC Validator *(in active development — migration lead, cybersecurity & GitHub admin)*
 > **Full-stack migration** of a Streamlit BIM audit platform to a decoupled modern architecture. YAML-driven rules engine validates BIM nomenclature (families, types, views, systems, coordinates, levels) from Revit plugin exports.
 
