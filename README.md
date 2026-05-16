@@ -101,10 +101,11 @@ Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software 
 
 ---
 
-### BIM QA/QC Validator *(in development — architecture & governance role)*
-> **Platform for BIM quality assurance and quality control**. My role: cybersecurity lead, repo architect, and GitHub organization administrator.
+### BIM QA/QC Validator *(in development — migration, cybersecurity & governance role)*
+> **YAML-driven BIM quality assurance platform** — rules engine that validates nomenclature (families, types, views, systems, coordinates, levels) from Revit plugin exports, with a Streamlit dashboard displaying real-time KPIs across 6 validation modules.
 
-**Role scope**: define repo structure, branching strategy and contribution guidelines; own the cybersecurity posture (secrets management, access control, dependency scanning); GitHub org admin (team permissions, CI/CD workflow permissions, protected branches).
+**Stack**: Python · Streamlit · pandas · Plotly · PyYAML · Revit API integration  
+**Role scope**: codebase migration lead; cybersecurity posture (secrets management, access control, dependency scanning); GitHub org admin (team permissions, CI/CD workflow permissions, protected branches).
 
 ---
 
