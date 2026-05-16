@@ -101,11 +101,12 @@ Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software 
 
 ---
 
-### BIM QA/QC Validator *(in development — migration, cybersecurity & governance role)*
-> **YAML-driven BIM quality assurance platform** — rules engine that validates nomenclature (families, types, views, systems, coordinates, levels) from Revit plugin exports, with a Streamlit dashboard displaying real-time KPIs across 6 validation modules.
+### BIM QA/QC Validator *(in active development — migration lead, cybersecurity & GitHub admin)*
+> **Full-stack migration** of a Streamlit BIM audit platform to a decoupled modern architecture. YAML-driven rules engine validates BIM nomenclature (families, types, views, systems, coordinates, levels) from Revit plugin exports.
 
-**Stack**: Python · Streamlit · pandas · Plotly · PyYAML · Revit API integration  
-**Role scope**: codebase migration lead; cybersecurity posture (secrets management, access control, dependency scanning); GitHub org admin (team permissions, CI/CD workflow permissions, protected branches).
+**Stack**: Python · FastAPI · SQLAlchemy · React 19 · TypeScript · TailwindCSS · Vite · PostgreSQL/Supabase · Docker · GitHub Actions · Vercel  
+**Highlights**: FastAPI backend wrapping existing ETL core; React 19 + TypeScript frontend with 6 pages, dark mode, persistent sidebar filters and mock auth (→ Azure AD/Entra ID); CI/CD via GitHub Actions + Vercel monorepo deploy; DB migration CSV → PostgreSQL/Supabase in progress.  
+**Role scope**: migration lead; cybersecurity posture (secrets management, access control, dependency scanning); GitHub org admin (team permissions, CI/CD workflow permissions, protected branches).
 
 ---
 
