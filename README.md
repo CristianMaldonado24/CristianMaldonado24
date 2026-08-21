@@ -1,8 +1,8 @@
 # Cristian Maldonado Román
 
-**Civil Engineer · AEC Software Engineer · Innovation Lead**
+**Civil Engineer · AEC Software Engineer · Founder & Lead, Innovation @ IDOM Chile**
 
-Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software engineer. As **Innovation Lead at IDOM Chile**, I founded and run a solo innovation function (Apr 2025) that ships production tooling used across the office and IDOM's international **iHub for BIM & Digital Twins**. Six years of AEC field experience on hospital, residential and education projects from 6,000 m² to 210,000 m² informs what I build and why.
+Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software engineer. I founded and run IDOM Chile's Innovation function (Apr 2025) as a solo initiative — 16 months and 13 production tools later, it ships tooling used across the office and IDOM's international **iHub for BIM & Digital Twins**. Six years of AEC field experience on hospital, residential and education projects from 6,000 m² to 210,000 m² informs what I build and why.
 
 📍 Santiago, Chile · ✉️ maldonado.c24@icloud.com · 🔗 linkedin.com/in/cristian-maldonado
 
@@ -14,14 +14,14 @@ Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software 
 **Web / Backend** — Next.js 15 (App Router, server actions) · FastAPI · SQLAlchemy 2.0 · Prisma · PostgreSQL  
 **Auth / Infra** — NextAuth v5 + Microsoft Entra ID · Docker (multi-stage) · Coolify · Azure VM (Ubuntu 24.04) · Supabase · GitHub Actions  
 **Desktop** — WPF + MVVM · ClosedXML · iText7 · DocumentFormat.OpenXml · AutoCAD COM Automation · PyInstaller · Inno Setup  
-**AEC / BIM** — Revit API (C#, 2023–2025) · AutoCAD COM · Dynamo · Navisworks · multi-discipline coordination · PlanBIM · ISO 19650  
+**AEC / BIM** — Revit API (C#, 2023–2026, 4 versions built simultaneously) · AutoCAD COM Automation · Dynamo · Navisworks Clash Detective automation · IFC2x3/IFC4 export · multi-discipline coordination · PlanBIM · ISO 19650  
 **AI / LLM** — Google Gemini 2.5 Flash (batch prompting, neighbor-context few-shot, rate-limit handling) · Azure AI Foundry GPT-4.1
 
 ---
 
 ## Production Portfolio
 
-8 tools in active use inside IDOM + 2 in development. Repos are private (IDOM IP), but the work is real.
+13 tools in active use inside IDOM. Repos are private (IDOM IP), but the work is real.
 
 ---
 
@@ -41,11 +41,19 @@ Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software 
 
 ---
 
-### IDOM Tools — Revit Add-in *(iHub BIM challenge, sole developer)*
-> **Multi-module Revit ribbon add-in** deployed across IDOM offices. Sole developer; live for a 5-6 person team with architecture designed to scale to the full office and additional geographic locations.
+### IDOM Tools — Revit Add-in *(flagship, sole developer)*
+> **Multi-module Revit ribbon add-in** deployed across IDOM offices. The longest-running tool in the portfolio: 16 months of continuous development, 154 commits, v2.3.1.
 
-**Stack**: C# 7.3 · .NET Framework 4.8 · Revit API (2023–2025) · WPF + Windows Forms  
-**Highlights**: 7 ribbon panels — modeling, coordination, review, management and a **ProSheets-equivalent multi-format export manager** (PDF/DWG/DWF/DWFx) with token-based filename resolution (`{Sheet Number}`, `{Project Number}`, `{Date}`, …). Architecture: `Core / Commands / Services / Models / UI / Resources`; `IExportService` strategy interface for extensibility.
+**Stack**: C# 7.3 · .NET Framework 4.8 · Revit API (2023–2026, 4 versions built from one solution) · WPF + Windows Forms · xUnit test project on .NET 8  
+**Highlights**: 7 ribbon panels — modeling, coordination, review, management and a **ProSheets-equivalent multi-format export manager** (PDF/DWG/DWF/DWFx) with token-based filename resolution. A **BIM QA/QC validator** batch-exports 26 categories of raw model data (levels, worksets, materials, warnings, shared parameters) across a folder of `.rvt` files for automated quality analysis, plus zero-volume element checks across 20 configurable categories. **13/13 unit tests passing** on versioned JSON contracts. Architecture: `Core / Commands / Services / Models / UI / Resources`; `IExportService` strategy interface; generic `IDataExtractor<T>` interface used by 25 BIM-data extractors.
+
+---
+
+### Revit ⇄ Navisworks Automation
+> Built after **Autodesk's own BIM coordination installer broke** and stopped working reliably. Automates Revit-to-`.nwc` export, updates Navisworks Clash Detective tests, and runs without admin rights — unlike the tool it replaces.
+
+**Stack**: C# · .NET 8 + .NET Framework 4.8 · Revit API (`Nice3point.Revit.Api.*`, no local Revit install needed to build) · Navisworks Manage API · Windows Task Scheduler API  
+**Highlights**: supports 4 Revit versions and 4 Navisworks Manage versions from one solution; scheduled task runs under the user's own account instead of the `System` account the original tool required; native IFC2x3/IFC4 exporter, adding scope beyond the original vendor tool; **41 automated tests**, dependency-free (no Revit/Navisworks/network required to run); documentation explicitly separates "verified" from "compiles but unverified" functionality rather than overselling MVP status.
 
 ---
 
@@ -93,11 +101,11 @@ Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software 
 
 ---
 
-### DWG Manager — Export Layouts *(in active development)*
-> **WPF desktop tool** for managing AutoCAD `.dwg` files and exporting layouts to individual DWGs via AutoCAD COM Automation. Migrated from a Python legacy script at v4.0.
+### DWG Manager — Export Layouts *(v4.1.2, production)*
+> **WPF desktop tool** for IDOM's Structures team: manages AutoCAD `.dwg` files and exports layouts to individual DWGs via AutoCAD COM Automation.
 
 **Stack**: C# · .NET 8 · WPF + MVVM · AutoCAD COM Automation · Supabase REST · P/Invoke · self-contained single-file exe  
-**Highlights**: bulk layout export via AutoCAD COM (specific layout by name or all with `*`); **P/Invoke dialog dismisser** — auto-closes AutoCAD pop-ups during unattended batch runs (`EnumWindows`); Supabase telemetry logging (user, hostname, domain, timestamp, layouts exported). Dual implementation history: Python 3 legacy → C# .NET 8 WPF.
+**Highlights**: bulk layout export via AutoCAD COM (specific layout by name or all with `*`); **P/Invoke dialog dismisser** — auto-closes AutoCAD pop-ups during unattended batch runs (`EnumWindows`); an **"AutoFix" flow that repairs dimension-layer artifacts specific to Revit-to-DWG exports** (backs up dimension text, runs `EXPLODE`, restores text) — direct Revit↔AutoCAD interoperability work, not a generic CAD script. Supabase telemetry logging. Migrated from a legacy Python implementation.
 
 ---
 
@@ -134,7 +142,7 @@ Civil engineer (Universidad Diego Portales, Chile) operating as an AEC software 
 - **Leading Digital Transformation** — MIT Professional Education (40 hrs), via Becas Santander, 2020
 - **Dynamo and Revit API with C#** — BMLearning specialization
 - **Introduction to BIM Methodology** — PlanBIM (score 90/100), 2020
-- **WallStreet English** — Level 17 (in active progression)
+- **WallStreet English** — Level 16, B2/C1 CEFR (in active progression)
 
 ---
 
